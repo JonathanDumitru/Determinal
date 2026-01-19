@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "self:">
+   </FileRef>
+   <FileRef
+      location = "group:DesignTokens 4.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Color+App 4.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Font+App 4.swift">
+   </FileRef>
+   <FileRef
+      location = "group:TerminalModels 2.swift">
+   </FileRef>
+   <FileRef
+      location = "group:TerminalViewModel 2.swift">
+   </FileRef>
+   <FileRef
+      location = "group:StatusBarView 2.swift">
+   </FileRef>
+   <FileRef
+      location = "group:TerminalOutputView 4.swift">
+   </FileRef>
+   <FileRef
+      location = "group:TerminalInputView 3.swift">
+   </FileRef>
+   <FileRef
+      location = "group:SettingsView 4.swift">
+   </FileRef>
+   <FileRef
+      location = "group:TerminalView 3.swift">
+   </FileRef>
+   <FileRef
+      location = "group:IMPLEMENTATION.md">
+   </FileRef>
+</Workspace>
