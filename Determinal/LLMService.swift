@@ -331,4 +331,9 @@ final class LLMServiceFactory {
             return SmartTerminAI()
         }
     }
+    
+    // Alternative factory method for UnifiedAIService
+    static func createUnifiedService(backend: UnifiedAIService.Backend = .ollama) -> LLMServiceProtocol {
+        return UnifiedAIService(backend: backend)
+    }
 }

@@ -6,7 +6,28 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D72BCF562F1E83D700919191 /* LLMTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72BCF552F1E83D700919191 /* LLMTypes.swift */; };
+		D72BCF582F1E840300919191 /* SharedAITypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72BCF572F1E840300919191 /* SharedAITypes.swift */; };
+		D72BCF5A2F1E843A00919191 /* COMPILATION_FIXES.md in Resources */ = {isa = PBXBuildFile; fileRef = D72BCF592F1E843A00919191 /* COMPILATION_FIXES.md */; };
+		D72BCF5C2F1E859500919191 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D72BCF5B2F1E859500919191 /* .gitignore */; };
+		D72BCF5E2F1E85B500919191 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D72BCF5D2F1E85B500919191 /* README.md */; };
+		D72BCF602F1E872D00919191 /* COMPILATION_ERROR_FIX_STEPS.md in Resources */ = {isa = PBXBuildFile; fileRef = D72BCF5F2F1E872D00919191 /* COMPILATION_ERROR_FIX_STEPS.md */; };
+		D72BCF622F1E874100919191 /* SharedAITypes 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72BCF612F1E874100919191 /* SharedAITypes 2.swift */; };
+		D72BCF642F1E876200919191 /* GITHUB_PUSH_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = D72BCF632F1E876200919191 /* GITHUB_PUSH_GUIDE.md */; };
+		D72BCF662F1E876C00919191 /* push_to_github.sh in Resources */ = {isa = PBXBuildFile; fileRef = D72BCF652F1E876C00919191 /* push_to_github.sh */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		D72BCF552F1E83D700919191 /* LLMTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMTypes.swift; sourceTree = "<group>"; };
+		D72BCF572F1E840300919191 /* SharedAITypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAITypes.swift; sourceTree = "<group>"; };
+		D72BCF592F1E843A00919191 /* COMPILATION_FIXES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = COMPILATION_FIXES.md; sourceTree = "<group>"; };
+		D72BCF5B2F1E859500919191 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D72BCF5D2F1E85B500919191 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D72BCF5F2F1E872D00919191 /* COMPILATION_ERROR_FIX_STEPS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = COMPILATION_ERROR_FIX_STEPS.md; sourceTree = "<group>"; };
+		D72BCF612F1E874100919191 /* SharedAITypes 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedAITypes 2.swift"; sourceTree = "<group>"; };
+		D72BCF632F1E876200919191 /* GITHUB_PUSH_GUIDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = GITHUB_PUSH_GUIDE.md; sourceTree = "<group>"; };
+		D72BCF652F1E876C00919191 /* push_to_github.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = push_to_github.sh; sourceTree = "<group>"; };
 		D775B01F2F19371100B59A24 /* Determinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Determinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -34,6 +55,15 @@
 			children = (
 				D775B0212F19371100B59A24 /* Determinal */,
 				D775B0202F19371100B59A24 /* Products */,
+				D72BCF552F1E83D700919191 /* LLMTypes.swift */,
+				D72BCF572F1E840300919191 /* SharedAITypes.swift */,
+				D72BCF592F1E843A00919191 /* COMPILATION_FIXES.md */,
+				D72BCF5B2F1E859500919191 /* .gitignore */,
+				D72BCF5D2F1E85B500919191 /* README.md */,
+				D72BCF5F2F1E872D00919191 /* COMPILATION_ERROR_FIX_STEPS.md */,
+				D72BCF612F1E874100919191 /* SharedAITypes 2.swift */,
+				D72BCF632F1E876200919191 /* GITHUB_PUSH_GUIDE.md */,
+				D72BCF652F1E876C00919191 /* push_to_github.sh */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +139,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D72BCF662F1E876C00919191 /* push_to_github.sh in Resources */,
+				D72BCF642F1E876200919191 /* GITHUB_PUSH_GUIDE.md in Resources */,
+				D72BCF5A2F1E843A00919191 /* COMPILATION_FIXES.md in Resources */,
+				D72BCF5C2F1E859500919191 /* .gitignore in Resources */,
+				D72BCF5E2F1E85B500919191 /* README.md in Resources */,
+				D72BCF602F1E872D00919191 /* COMPILATION_ERROR_FIX_STEPS.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D72BCF582F1E840300919191 /* SharedAITypes.swift in Sources */,
+				D72BCF622F1E874100919191 /* SharedAITypes 2.swift in Sources */,
+				D72BCF562F1E83D700919191 /* LLMTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

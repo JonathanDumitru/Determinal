@@ -8,77 +8,7 @@
 import Foundation
 import NaturalLanguage
 
-// Simple model selector for Apple Silicon Macs (e.g., M1)
-struct ModelSelector {
-    enum Target: String {
-        case smallLocal = "termin-small"
-        case mediumLocal = "termin-medium"
-        case largeRemote = "termin-large"
-    }
-
-    struct Capability {
-        let isAppleSilicon: Bool
-        let physicalMemoryGB: Int
-
-        static func current() -> Capability {
-            let bytes = ProcessInfo.processInfo.physicalMemory
-            let gb = Int((Double(bytes) / (1024.0 * 1024.0 * 1024.0)).rounded(.down))
-            return Capability(isAppleSilicon: ProcessInfo.processInfo.isAppleSilicon, physicalMemoryGB: gb)
-        }
-
-        var tier: Int {
-            // Tier 1: <= 8GB, Tier 2: 9-16GB, Tier 3: >16GB
-            switch physicalMemoryGB {
-            case ..<9: return 1
-            case 9...16: return 2
-            default: return 3
-            }
-        }
-    }
-
-    func selectModel(for prompt: String, requested: String?) -> String {
-        // Respect explicit request
-        if let requested, !requested.isEmpty, requested.lowercased() != "auto", requested.lowercased() != "default" {
-            return requested
-        }
-
-        let caps = Capability.current()
-        let length = prompt.count
-        let onAppleSilicon = caps.isAppleSilicon
-        let tier = caps.tier
-
-        // Heuristic by capability tier and prompt length
-        if onAppleSilicon {
-            switch tier {
-            case 1: // <= 8GB unified memory
-                if length < 200 { return Target.smallLocal.rawValue }
-                if length < 1000 { return Target.smallLocal.rawValue }
-                return Target.largeRemote.rawValue
-            case 2: // 9-16GB (typical M1/M2)
-                if length < 160 { return Target.smallLocal.rawValue }
-                if length < 2400 { return Target.mediumLocal.rawValue }
-                return Target.largeRemote.rawValue
-            default: // >16GB
-                if length < 160 { return Target.smallLocal.rawValue }
-                if length < 4000 { return Target.mediumLocal.rawValue }
-                return Target.largeRemote.rawValue
-            }
-        } else {
-            // Non-Apple Silicon fallback
-            return length < 200 ? Target.smallLocal.rawValue : Target.largeRemote.rawValue
-        }
-    }
-}
-
-private extension ProcessInfo {
-    var isAppleSilicon: Bool {
-        #if arch(arm64)
-        return true
-        #else
-        return false
-        #endif
-    }
-}
+// ModelSelector is now in SharedAITypes.swift
 
 protocol StreamingLLMClient {
     func streamCompletion(prompt: String, model: String) -> AsyncThrowingStream<String, Error>
@@ -86,10 +16,7 @@ protocol StreamingLLMClient {
 
 // MARK: - Minimal supporting stubs to satisfy compilation
 
-struct ConversationContext {
-    var history: [String] = []
-}
-
+// ConversationContext and ContextTracker are now in SharedAITypes.swift
 // SafetyResult and SafetyGuardian are now in SafetyGuardian.swift
 
 enum DetectedIntent {
@@ -145,11 +72,8 @@ final class IntelligenceEngine {
     }
 }
 
-final class ContextTracker {
-    private var prompts: [String] = []
-    func addPrompt(_ prompt: String) async { prompts.append(prompt) }
-    func getCurrentContext() async -> ConversationContext { ConversationContext(history: prompts) }
-}
+// IntelligenceEngine is defined below
+// ContextTracker is now in SharedAITypes.swift
 
 // MARK: - Smart Termin AI with Predictive Intelligence
 
