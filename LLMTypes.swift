@@ -38,7 +38,13 @@ enum LLMError: LocalizedError {
 // MARK: - Service Factory
 
 final class LLMServiceFactory {
+    /// Create a unified AI service (recommended)
     static func createService(backend: UnifiedAIService.Backend = .ollama) -> LLMServiceProtocol {
+        return UnifiedAIService(backend: backend)
+    }
+    
+    /// Create a unified service (alias for clarity)
+    static func createUnifiedService(backend: UnifiedAIService.Backend = .ollama) -> LLMServiceProtocol {
         return UnifiedAIService(backend: backend)
     }
 }

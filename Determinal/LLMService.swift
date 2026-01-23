@@ -278,35 +278,7 @@ final class OpenAICompatibleService: LLMServiceProtocol {
     }
 }
 
-// MARK: - Errors
-
-enum LLMError: LocalizedError {
-    case invalidURL
-    case invalidResponse
-    case serverError(statusCode: Int)
-    case connectionFailed
-    case modelNotFound
-    case cancelled
-    
-    var errorDescription: String? {
-        switch self {
-        case .invalidURL:
-            return "Invalid API URL"
-        case .invalidResponse:
-            return "Invalid response from LLM server"
-        case .serverError(let statusCode):
-            return "Server error: HTTP \(statusCode)"
-        case .connectionFailed:
-            return "Failed to connect to LLM server. Make sure Ollama, llama.cpp, or LM Studio is running."
-        case .modelNotFound:
-            return "Model not found. Please check the model name and try again."
-        case .cancelled:
-            return "Generation cancelled"
-        }
-    }
-}
-
-// MARK: - Service Factory
+// MARK: - Service Factory (Legacy)
 
 enum LLMServiceType {
     case ollama
@@ -316,7 +288,7 @@ enum LLMServiceType {
     case smartTermin     // Enhanced offline AI with predictive intelligence
 }
 
-final class LLMServiceFactory {
+extension LLMServiceFactory {
     static func createService(type: LLMServiceType) -> LLMServiceProtocol {
         switch type {
         case .ollama:
@@ -330,10 +302,5 @@ final class LLMServiceFactory {
         case .smartTermin:
             return SmartTerminAI()
         }
-    }
-    
-    // Alternative factory method for UnifiedAIService
-    static func createUnifiedService(backend: UnifiedAIService.Backend = .ollama) -> LLMServiceProtocol {
-        return UnifiedAIService(backend: backend)
     }
 }

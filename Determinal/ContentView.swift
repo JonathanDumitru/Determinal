@@ -17,39 +17,84 @@ struct ContentView: View {
     @State private var showAbout = false
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                // Terminal output
-                InlineTerminalOutputView(
-                    history: viewModel.history,
-                    workingDirectory: viewModel.workingDirectory,
-                    theme: viewModel.currentTheme
-                )
-                
-                // Input field
-                InlineTerminalInputView(
-                    workingDirectory: viewModel.workingDirectory,
-                    theme: viewModel.currentTheme,
-                    input: $viewModel.currentInput,
-                    onSubmit: {
-                        let command = viewModel.currentInput
-                        viewModel.currentInput = ""
-                        viewModel.executeCommand(command)
-                    },
-                    onHistoryUp: {
-                        if let command = viewModel.navigateHistoryUp() {
-                            viewModel.currentInput = command
+        HStack(alignment: .top, spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
+                // Terminal content container
+                VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        // Welcome message area
+                        VStack(alignment: .leading, spacing: 0) {
+                            if viewModel.history.isEmpty {
+                                Text("Type 'help' for available commands")
+                                    .font(.custom("Inter", size: 14))
+                                    .foregroundColor(Color(red: 0.70, green: 0.70, blue: 0.70))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .frame(height: 22.75)
+                            } else {
+                                // Terminal output
+                                InlineTerminalOutputView(
+                                    history: viewModel.history,
+                                    workingDirectory: viewModel.workingDirectory,
+                                    theme: viewModel.currentTheme
+                                )
+                            }
+                            
+                            Spacer()
+                            
+                            // Input prompt
+                            HStack(spacing: 8) {
+                                Text("$")
+                                    .font(.custom("Inter", size: 14).weight(.medium))
+                                    .foregroundColor(.white)
+                                    .frame(width: 8.44, height: 20)
+                                
+                                // Input field
+                                TextField("", text: $viewModel.currentInput, axis: .vertical)
+                                    .font(.custom("Inter", size: 14))
+                                    .foregroundColor(.white)
+                                    .textFieldStyle(.plain)
+                                    .onSubmit {
+                                        let command = viewModel.currentInput
+                                        viewModel.currentInput = ""
+                                        viewModel.executeCommand(command)
+                                    }
+                                    .onKeyPress(.upArrow) {
+                                        if let command = viewModel.navigateHistoryUp() {
+                                            viewModel.currentInput = command
+                                        }
+                                        return .handled
+                                    }
+                                    .onKeyPress(.downArrow) {
+                                        if let command = viewModel.navigateHistoryDown() {
+                                            viewModel.currentInput = command
+                                        }
+                                        return .handled
+                                    }
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .frame(height: 20)
                         }
-                    },
-                    onHistoryDown: {
-                        if let command = viewModel.navigateHistoryDown() {
-                            viewModel.currentInput = command
-                        }
+                        .padding(EdgeInsets(top: 24, leading: 24, bottom: 24, trailing: 24))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .cornerRadius(16)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(red: 0, green: 0, blue: 0).opacity(0.40))
+                .cornerRadius(16)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .inset(by: 0.50)
+                        .stroke(Color(red: 1, green: 1, blue: 1).opacity(0.20), lineWidth: 0.50)
                 )
+                .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.10), radius: 6, y: 4)
             }
+            .frame(maxHeight: .infinity)
         }
-        .background(.ultraThinMaterial.opacity(0.3))
+        .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(red: 0.29, green: 0.29, blue: 0.29))
         .sheet(isPresented: $showSettings) {
             SettingsWindow(viewModel: viewModel)
         }
@@ -104,55 +149,6 @@ struct ContentView: View {
     }
 }
 
-// MARK: - Status Bar View
-
-private struct InlineStatusBarView: View {
-    let resources: InlineSystemResources
-    let modelStatus: InlineModelStatus
-    let theme: InlineAppTheme
-    
-    var body: some View {
-        HStack(spacing: 20) {
-            HStack(spacing: 4) {
-                Image(systemName: "cpu")
-                    .font(.system(size: 12))
-                    .foregroundStyle(Color(hex: 0x737373))
-                Text("\(String(format: "%.1f", resources.tokensPerSec)) tokens/s")
-                    .font(.system(size: 11, design: .monospaced))
-                    .foregroundStyle(Color(hex: 0xA3A3A3))
-            }
-            
-            HStack(spacing: 4) {
-                Image(systemName: "memorychip")
-                    .font(.system(size: 12))
-                    .foregroundStyle(Color(hex: 0x737373))
-                Text("\(resources.memoryUsed)MB / \(resources.memoryTotal)MB")
-                    .font(.system(size: 11, design: .monospaced))
-                    .foregroundStyle(Color(hex: 0xA3A3A3))
-            }
-            
-            HStack(spacing: 4) {
-                Image(systemName: "waveform")
-                    .font(.system(size: 12))
-                    .foregroundStyle(Color(hex: 0x737373))
-                Text(modelStatus.rawValue)
-                    .font(.system(size: 11, design: .monospaced))
-                    .foregroundStyle(modelStatus == .inferencing ? theme.primary : Color(hex: 0xA3A3A3))
-            }
-            
-            Spacer()
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
-        .background(Color(hex: 0x0A0A0A).opacity(0.7))
-        .overlay(alignment: .bottom) {
-            Rectangle()
-                .fill(Color(hex: 0x262626).opacity(0.5))
-                .frame(height: 1)
-        }
-    }
-}
-
 // MARK: - Terminal Output View
 
 private struct InlineTerminalOutputView: View {
@@ -163,154 +159,44 @@ private struct InlineTerminalOutputView: View {
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                VStack(alignment: .leading, spacing: 6) {
+                VStack(alignment: .leading, spacing: 8) {
                     ForEach(history) { entry in
                         HStack(alignment: .top, spacing: 8) {
                             if entry.type == .input {
-                                HStack(spacing: 4) {
-                                    Text(workingDirectory)
-                                        .foregroundStyle(.tertiary)
-                                    Text("❯")
-                                        .foregroundStyle(.primary)
-                                        .fontWeight(.bold)
-                                }
-                                .font(.system(size: 13, design: .monospaced))
+                                Text("$")
+                                    .font(.custom("Inter", size: 14).weight(.medium))
+                                    .foregroundColor(.white)
                             }
                             
                             Text(entry.content)
-                                .font(.system(size: 13, design: .monospaced))
-                                .foregroundStyle(colorForEntryType(entry.type))
+                                .font(.custom("Inter", size: 14))
+                                .foregroundColor(colorForEntryType(entry.type))
                                 .textSelection(.enabled)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.ultraThinMaterial.opacity(entry.type == .input ? 0.3 : 0.1))
-                                .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
-                        )
-                        .transition(.asymmetric(
-                            insertion: .scale(scale: 0.95).combined(with: .opacity),
-                            removal: .opacity
-                        ))
-                        .animation(.spring(response: 0.4, dampingFraction: 0.7), value: entry.id)
                         .id(entry.id)
                     }
                 }
-                .padding(20)
+                .padding(0)
             }
             .onChange(of: history.count) { oldValue, newValue in
                 if let last = history.last {
-                    withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                    withAnimation(.easeOut(duration: 0.2)) {
                         proxy.scrollTo(last.id, anchor: .bottom)
                     }
                 }
             }
         }
-        .background(.ultraThinMaterial.opacity(0.2))
     }
     
     private func colorForEntryType(_ type: InlineHistoryEntry.EntryType) -> Color {
         switch type {
-        case .input: return .primary
-        case .output: return .secondary
-        case .error: return Color(white: 0.95)
-        case .system: return Color(white: 0.8)
-        case .success: return .primary
-        case .warning: return Color(white: 0.7)
-        }
-    }
-}
-
-// MARK: - Terminal Input View
-
-private struct InlineTerminalInputView: View {
-    let workingDirectory: String
-    let theme: InlineAppTheme
-    @Binding var input: String
-    let onSubmit: () -> Void
-    let onHistoryUp: () -> Void
-    let onHistoryDown: () -> Void
-    
-    @FocusState private var isFocused: Bool
-    @State private var cursorBlink = false
-    
-    var body: some View {
-        HStack(spacing: 10) {
-            HStack(spacing: 4) {
-                Text(workingDirectory)
-                    .foregroundStyle(.tertiary)
-                Text("❯")
-                    .foregroundStyle(.primary)
-                    .fontWeight(.bold)
-                    .scaleEffect(isFocused ? 1.1 : 1.0)
-                    .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isFocused)
-            }
-            .font(.system(size: 13, design: .monospaced))
-            
-            ZStack(alignment: .leading) {
-                // Placeholder glow effect when empty
-                if input.isEmpty {
-                    Text("Type a command...")
-                        .foregroundStyle(.tertiary)
-                        .font(.system(size: 14, weight: .regular, design: .monospaced))
-                        .opacity(isFocused ? 0.5 : 0.3)
-                        .animation(.easeInOut(duration: 0.3), value: isFocused)
-                }
-                
-                TextField("", text: $input, axis: .vertical)
-                    .font(.system(size: 14, weight: .medium, design: .monospaced))
-                    .foregroundStyle(.primary)
-                    .textFieldStyle(.plain)
-                    .focused($isFocused)
-                    .onSubmit {
-                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                            onSubmit()
-                        }
-                    }
-                    .onKeyPress(.upArrow) {
-                        onHistoryUp()
-                        return .handled
-                    }
-                    .onKeyPress(.downArrow) {
-                        onHistoryDown()
-                        return .handled
-                    }
-            }
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.ultraThinMaterial.opacity(0.6))
-                .shadow(color: .black.opacity(0.15), radius: 15, x: 0, y: -8)
-                .shadow(color: .white.opacity(0.1), radius: 1, x: 0, y: 1)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(
-                    LinearGradient(
-                        colors: [
-                            .white.opacity(isFocused ? 0.3 : 0.15),
-                            .white.opacity(isFocused ? 0.15 : 0.05)
-                        ],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 1.5
-                )
-        )
-        .scaleEffect(isFocused ? 1.005 : 1.0)
-        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isFocused)
-        .padding(.horizontal, 12)
-        .padding(.vertical, 12)
-        .onAppear {
-            isFocused = true
-            // Cursor blink animation
-            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
-                cursorBlink.toggle()
-            }
+        case .input: return .white
+        case .output: return Color(red: 0.70, green: 0.70, blue: 0.70)
+        case .error: return Color(red: 1.0, green: 0.4, blue: 0.4)
+        case .system: return Color(red: 0.5, green: 0.8, blue: 1.0)
+        case .success: return Color(red: 0.4, green: 1.0, blue: 0.6)
+        case .warning: return Color(red: 1.0, green: 0.8, blue: 0.4)
         }
     }
 }
@@ -348,9 +234,7 @@ final class InlineTerminalViewModel {
             tokensPerSec: 0
         )
         
-        addSystemMessage("Determinal LocalAI Terminal v1.0.0")
-        addSystemMessage("Type 'help' for available commands")
-        addOutputMessage("")
+        // Don't add welcome messages - keep it minimal like Figma design
     }
     
     func executeCommand(_ command: String) {
@@ -1029,5 +913,5 @@ extension Color {
 
 #Preview {
     ContentView()
-        .frame(width: 1200, height: 800)
+        .frame(width: 1026, height: 749)
 }

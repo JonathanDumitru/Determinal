@@ -1,6 +1,6 @@
 # Determinal
 
-A safe, intelligent AI-powered terminal and coding assistant for macOS with comprehensive safety guardrails and offline capabilities.
+###A safe, intelligent AI-powered terminal and coding assistant for macOS with comprehensive safety guardrails and offline capabilities.
 
 ## 🌟 Features
 
