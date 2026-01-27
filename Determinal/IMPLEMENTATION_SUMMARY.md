@@ -1,5 +1,8 @@
 # Menu Bar Implementation Summary
 
+**Note:** This is a historical implementation summary and may not reflect current behavior.  
+For up-to-date shortcuts and menu bar behavior, see `Determinal/COMMANDS.md`.
+
 ## What Was Implemented
 
 I've successfully transformed Determinal into a menu bar application with the following features:

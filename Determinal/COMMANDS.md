@@ -1,7 +1,7 @@
 # Determinal - Command Reference
 
 **Version:** 1.0.0  
-**Last Updated:** January 15, 2026
+**Last Updated:** January 27, 2026
 
 ---
 
@@ -26,7 +26,7 @@ Determinal is a glassmorphic AI terminal interface for macOS that runs as a menu
 - **Global Hotkey**: Toggle terminal visibility with `⌘⇧\`` (Command + Shift + Backtick)
 - **Always on Top**: Floating window stays above other applications
 - **Keyboard-First**: Navigate entirely with keyboard shortcuts
-- **Local AI**: Run inference with local AI models (llama.cpp compatible)
+- **Local AI**: Run inference with local AI models (Ollama/llama.cpp) or OpenAI-compatible backends
 
 ---
 
@@ -42,13 +42,15 @@ These shortcuts work system-wide, even when Determinal is not the active applica
 
 ## Menu Bar Controls
 
-Click the terminal icon (⚡) in your menu bar to access:
+Click the terminal icon in your menu bar to access:
 
-- **Show Terminal** - Bring terminal window to front
+- **Show/Hide Terminal** - Toggle the terminal window
+- **Clear Terminal** - Clear terminal output
+- **Show Status** - Display current model and system status
 - **Settings...** - Open settings window
 - **Documentation** - Open this command reference
 - **About Determinal** - View app information
-- **Quit** - Exit Determinal
+- **Quit** - Exit Determinal (menu bar only)
 
 ---
 
@@ -63,18 +65,19 @@ These commands are entered in the terminal input field:
 | `help` | Display available commands | `help` |
 | `clear` | Clear terminal history | `clear` |
 | `status` | Show current model and system status | `status` |
+| `stop` | Stop current generation | `stop` |
 
 ### Model Management
 
 | Command | Description | Example |
 |---------|-------------|---------|
 | `models` | List all available AI models | `models` |
-| `switch <model>` | Switch to a different model | `switch llama-2-13b` |
+| `switch <model>` | Switch to a different model | `switch llama2` |
 
 Available model IDs:
-- `codellama-7b` - CodeLlama 7B (code generation)
-- `llama-2-13b` - Llama 2 13B (chat)
-- `mistral-7b` - Mistral 7B (instruction following)
+- `codellama` - CodeLlama 7B (code generation)
+- `llama2` - Llama 2 13B (chat)
+- `mistral` - Mistral 7B (instruction following)
 
 ### AI Inference
 
@@ -87,7 +90,7 @@ Available model IDs:
 | Command | Description | Example |
 |---------|-------------|---------|
 | `workflow list` | List available workflows | `workflow list` |
-| `workflow run <name>` | Run a saved workflow | `workflow run code-review` |
+| `workflow run <name>` | Run a saved workflow (planned) | `workflow run code-review` |
 
 Available workflows:
 - `code-review` - Analyze code for improvements
@@ -105,8 +108,10 @@ These shortcuts work when Determinal is the active application:
 |----------|--------|
 | `⌘⇧\`` | Show/Hide terminal window |
 | `⌘,` | Open Settings |
-| `⌘Q` | Quit Determinal |
+| `⌘Q` | Hide terminal window |
 | `⌘W` | Hide terminal window |
+
+**Note:** Quitting the app is done from the menu bar (no keyboard shortcut).
 
 ### Terminal Operations
 
@@ -152,7 +157,7 @@ status
 models
 
 # Switch to a different model
-switch llama-2-13b
+switch llama2
 
 # Run your first AI query
 run "Write a haiku about coding"
@@ -173,8 +178,8 @@ To switch models:
 
 ```bash
 models                    # See available models
-switch codellama-7b      # Switch to CodeLlama
-switch llama-2-13b       # Switch to Llama 2
+switch codellama      # Switch to CodeLlama
+switch llama2         # Switch to Llama 2
 ```
 
 ### Using Workflows

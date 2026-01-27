@@ -4,7 +4,7 @@
 
 When you launch Determinal for the first time, you'll notice:
 
-1. **No Dock Icon** - The app runs as a menu bar application
+1. **Dynamic Dock Icon** - Appears when the window is visible, hides when the window is hidden
 2. **Terminal Icon** - Look for the terminal icon (▣) in your menu bar at the top of your screen
 3. **Floating Window** - The main terminal window appears and stays on top of other windows
 
@@ -20,9 +20,7 @@ The Determinal icon appears in your menu bar alongside system icons.
 
 ## ⌨️ Essential Keyboard Shortcuts
 
-### The Two CMD+Q Behaviors
-
-#### CMD + Q → **Hide** (App Keeps Running)
+### CMD + Q → **Hide** (App Keeps Running)
 ```
 ┌──────────────────────────┐
 │   Terminal Window        │
@@ -39,22 +37,8 @@ The Determinal icon appears in your menu bar alongside system icons.
 ```
 **Result**: Window disappears, app stays in menu bar, all data preserved
 
-#### CMD + SHIFT + Q → **Quit** (Full Exit)
-```
-┌──────────────────────────┐
-│   Terminal Window        │
-│   [Your work here]       │
-│                          │
-│   Press: ⌘⇧Q            │
-└──────────────────────────┘
-                ↓
-      App Fully Quits
-                ↓
-┌──────────────────────────┐
-│  Menu Bar: Empty        │
-└──────────────────────────┘
-```
-**Result**: Application completely terminates, menu bar icon removed
+### Quit (Full Exit)
+To fully quit Determinal, use the menu bar icon and select **Quit Determinal**.
 
 ### Global Hotkey
 
@@ -88,7 +72,7 @@ Working in Safari/Chrome/Any App
 ├─────────────────────────────┤
 │ About Determinal           │
 ├─────────────────────────────┤
-│ Quit Determinal       ⌘⇧Q   │ ← Full quit
+│ Quit Determinal            │ ← Full quit
 └─────────────────────────────┘
 ```
 
@@ -129,7 +113,7 @@ Working in Safari/Chrome/Any App
 ### Workflow 3: End of Day
 ```
 1. Finished working?
-   └─> Press ⌘⇧Q
+   └─> Right-click menu bar icon → Quit Determinal
 
 2. App fully quits
    └─> Menu bar icon disappears
@@ -214,8 +198,8 @@ A: Minimal! It's idle in the background, using very little memory/CPU.
 **Q: Can I disable the menu bar icon?**
 A: No—it's essential for accessing the hidden window! Without it, you'd need to re-launch.
 
-**Q: What if I accidentally quit with CMD+SHIFT+Q?**
-A: Just re-launch Determinal. Your settings are saved, though terminal history will be fresh.
+**Q: How do I quit the app?**
+A: Right-click the menu bar icon and choose "Quit Determinal".
 
 **Q: Does CMD+SHIFT+` work in all apps?**
 A: Yes! It's a global hotkey that works system-wide.
@@ -231,7 +215,6 @@ Print or save this quick reference:
 ║         DETERMINAL QUICK REFERENCE           ║
 ╠═══════════════════════════════════════════════╣
 ║  ⌘Q          Hide window (stays running)    ║
-║  ⌘⇧Q         Quit completely                ║
 ║  ⌘⇧`         Toggle window (global)         ║
 ║  ⌘K          Clear terminal                 ║
 ║  ⌘I          Show status                    ║

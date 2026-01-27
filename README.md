@@ -28,6 +28,13 @@
 - **Best Practices**: Includes safety checks and recommendations
 - **Multi-Language Support**: Defaults to Swift but supports multiple programming languages
 
+## 🧭 Menu Bar & Shortcuts
+
+- **Menu Bar App**: Runs from the macOS menu bar; no Dock icon when hidden
+- **Global Hotkey**: Toggle the window with `⌘⇧\`` from any app
+- **Hide vs Quit**: `⌘Q` hides the window; quitting is done from the menu bar
+- **Full Reference**: See `Determinal/COMMANDS.md` for the complete command list
+
 ## 🏗️ Architecture
 
 ### Core Components

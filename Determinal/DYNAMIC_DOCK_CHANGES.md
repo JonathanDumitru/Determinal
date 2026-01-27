@@ -1,5 +1,8 @@
 # Dynamic Dock Behavior - Implementation Summary
 
+**Note:** This is a historical implementation summary and may not reflect current behavior.  
+For up-to-date shortcuts and menu bar behavior, see `Determinal/COMMANDS.md`.
+
 ## ✅ Changes Implemented
 
 ### 1. Updated Toggle Shortcut: CMD+OPTION+` (CMD+ALT+`)

@@ -4,7 +4,7 @@
 
 The app has been simplified for a better user experience:
 
-- **CMD+`** (instead of CMD+SHIFT+`) - Toggle window
+- **CMD+SHIFT+`** - Toggle window (global)
 - **CMD+Q** - Hide window (app stays running)
 - **No keyboard shortcut to quit** - Use menu bar to quit
 - **Right-click menu bar icon** - Primary way to access all features
@@ -14,7 +14,7 @@ The app has been simplified for a better user experience:
 ### Window Management
 ```
 ⌘ + Q      Hide window (app stays in menu bar)
-⌘ + `      Toggle window (show/hide from anywhere)
+⌘ + ⇧ + `  Toggle window (show/hide from anywhere)
 ```
 
 ### Terminal Commands  
@@ -50,13 +50,13 @@ The menu bar icon is your primary control center:
 
 ### Quick Terminal Access
 ```
-1. Press ⌘` from any app
+1. Press ⌘⇧` from any app
    └─> Terminal appears instantly
 
 2. Type your command
    └─> Get AI response
 
-3. Press ⌘Q or ⌘` to hide
+3. Press ⌘Q or ⌘⇧` to hide
    └─> Window hides, app ready in menu bar
 
 4. Repeat whenever needed
@@ -71,7 +71,7 @@ The menu bar icon is your primary control center:
 2. Click "Quit Determinal"
    └─> App fully terminates
 
-Alternative: Use ⌘Q from menu while app is active
+No keyboard shortcut quits the app.
 ```
 
 ### Working with Hidden Window
@@ -82,7 +82,7 @@ Alternative: Use ⌘Q from menu while app is active
 2. Menu bar icon (▣) shows it's running
    └─> Ready at any moment
 
-3. Press ⌘` when you need it
+3. Press ⌘⇧` when you need it
    └─> Window reappears with all history
 
 4. Done? Press ⌘Q again
@@ -91,11 +91,8 @@ Alternative: Use ⌘Q from menu while app is active
 
 ## 💡 Pro Tips
 
-### Tip 1: Simpler Toggle
-The new **⌘`** shortcut is easier to press than the old ⌘⇧`
-- No need to hold SHIFT
-- Faster one-handed access
-- Less finger gymnastics
+### Tip 1: Global Toggle
+Use **⌘⇧`** to show/hide the window from anywhere.
 
 ### Tip 2: Menu Bar First
 Get comfortable with the right-click menu:
@@ -106,7 +103,7 @@ Get comfortable with the right-click menu:
 ### Tip 3: Two Ways to Hide
 Both work the same:
 - **⌘Q** - Standard hide shortcut
-- **⌘`** - Toggle (hides if visible)
+- **⌘⇧`** - Toggle (hides if visible)
 
 ### Tip 4: Intentional Quit
 No accidental quits! To fully quit:
@@ -126,14 +123,14 @@ Clicking the window's close button (⭕️) hides the window—it doesn't quit!
 ```
 Menu Bar: [▣] "Hide Terminal"
 Window:   [Visible, floating on top]
-Action:   Press ⌘Q or ⌘` to hide
+Action:   Press ⌘Q or ⌘⇧` to hide
 ```
 
 ### Hidden State  
 ```
 Menu Bar: [▣] "Show Terminal"
 Window:   [Hidden but ready]
-Action:   Press ⌘` to show
+Action:   Press ⌘⇧` to show
 ```
 
 ### Fully Quit
@@ -149,7 +146,7 @@ Action:   Launch app to restart
 ╔═══════════════════════════════════════════════╗
 ║       DETERMINAL SIMPLIFIED SHORTCUTS        ║
 ╠═══════════════════════════════════════════════╣
-║  ⌘`          Toggle window (show/hide)      ║
+║  ⌘⇧`         Toggle window (show/hide)      ║
 ║  ⌘Q          Hide window                    ║
 ║  ⌘K          Clear terminal                 ║
 ║  ⌘I          Show status                    ║
@@ -174,13 +171,13 @@ A: Right-click the menu bar icon and select "Quit Determinal"
 A: This prevents accidental quits. The menu bar is now the primary quit method.
 
 **Q: Is ⌘` the same as ⌘⇧`?**
-A: No! It's simpler now—just ⌘` (no SHIFT needed).
+A: No—**⌘⇧`** is the global toggle.
 
 **Q: What if I press ⌘Q multiple times?**
-A: No effect. The window is already hidden. Use ⌘` to show it again.
+A: No effect. The window is already hidden. Use ⌘⇧` to show it again.
 
 **Q: Can I still use keyboard shortcuts when window is hidden?**
-A: Yes! ⌘` works globally. Other shortcuts work when window is visible.
+A: Yes! ⌘⇧` works globally. Other shortcuts work when window is visible.
 
 **Q: Does the app auto-start on login?**
 A: Not by default. You can add it to Login Items in System Settings.
@@ -196,15 +193,14 @@ A: Not by default. You can add it to Login Items in System Settings.
 
 ### After  
 - Menu bar to quit (right-click)
-- ⌘` to toggle (no SHIFT!)
-- Simpler, more intuitive
+- ⌘⇧` to toggle
 
 ## 🎯 Design Philosophy
 
 1. **Menu Bar First** - Right-click for everything
 2. **Simple Shortcuts** - No complex modifier combos
 3. **Intentional Quit** - Prevents accidental termination
-4. **Fast Toggle** - ⌘` is quick and easy
+4. **Fast Toggle** - ⌘⇧` is quick and reliable
 
 **Enjoy your streamlined AI terminal! 🚀**
 

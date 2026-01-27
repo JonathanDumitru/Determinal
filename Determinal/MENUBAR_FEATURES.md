@@ -11,13 +11,12 @@ Determinal lives in your macOS menu bar, providing quick access to your local AI
 - **Always Available**: Determinal runs as a menu bar application
 - **Quick Access**: Click the terminal icon in your menu bar to show/hide the window
 - **Background Mode**: App continues running even when window is hidden
-- **No Dock Icon**: Clean workspace without cluttering your Dock
+- **Dynamic Dock Icon**: Appears when the window is visible and hides when the window is hidden
 
 ### ⌨️ Keyboard Shortcuts
 
 #### Window Management
 - **⌘ + Q** - Hide the window (app stays running in menu bar)
-- **⌘ + ⇧ + Q** - Quit the application completely
 - **⌘ + ⇧ + `** - Toggle terminal window visibility (works globally)
 
 #### Terminal Commands
@@ -37,7 +36,7 @@ Right-click (or left-click) the menu bar icon to access:
 4. **Settings...** (⌘,) - Open settings panel
 5. **Documentation** - View command documentation
 6. **About Determinal** - App information
-7. **Quit Determinal** (⌘⇧Q) - Fully quit the application
+7. **Quit Determinal** - Fully quit the application
 
 ## Workflow Examples
 
@@ -57,7 +56,7 @@ Right-click (or left-click) the menu bar icon to access:
 1. Close window with **⌘Q** when not needed
 2. No Dock icon cluttering your workspace
 3. Terminal icon in menu bar for quick access
-4. Use **⌘⇧Q** only when fully quitting
+4. Use the menu bar **Quit Determinal** option only when fully quitting
 
 ## First-Time Experience
 
@@ -89,9 +88,8 @@ The **⌘⇧`** shortcut works system-wide, so you can summon Determinal from an
 
 ### Full Quit Options
 To completely quit Determinal:
-1. Press **⌘⇧Q** while window is open
-2. Choose "Quit Determinal" from menu bar menu
-3. Both options fully terminate the application
+1. Choose "Quit Determinal" from the menu bar menu
+2. This fully terminates the application
 
 ## Settings Integration
 

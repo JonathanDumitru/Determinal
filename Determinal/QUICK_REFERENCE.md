@@ -1,14 +1,14 @@
-# Determinal - Quick Reference (CMD+ALT+` with Dynamic Dock)
+# Determinal - Quick Reference (CMD+SHIFT+` with Dynamic Dock)
 
 ## 🎯 New Keyboard Shortcut
 
 ```
-⌘ + ⌥ + `    Toggle Window (Command + Option/Alt + Backtick)
+⌘ + ⇧ + `    Toggle Window (Command + Shift + Backtick)
 ```
 
 **How to press:**
 1. Hold Command (⌘)
-2. Hold Option (⌥) / Alt
+2. Hold Shift (⇧)
 3. Press Backtick (`)
 4. Release all keys
 
@@ -25,7 +25,7 @@
 Menu Bar: [▣] Hide Terminal
 Dock:     [Finder][Safari][Determinal]  ← Present!
           
-Can use: CMD+TAB, Dock click, ⌘⌥`
+Can use: CMD+TAB, Dock click, ⌘⇧`
 ```
 
 ### Window Hidden = No Dock Icon
@@ -39,7 +39,7 @@ Can use: CMD+TAB, Dock click, ⌘⌥`
 Menu Bar: [▣] Show Terminal  ← Always there!
 Dock:     [Finder][Safari]   ← No Determinal
 
-Can use: ⌘⌥`, Menu bar icon
+Can use: ⌘⇧`, Menu bar icon
 ```
 
 ## ⌨️ All Keyboard Shortcuts
@@ -48,7 +48,7 @@ Can use: ⌘⌥`, Menu bar icon
 ╔═══════════════════════════════════════════════╗
 ║         DETERMINAL SHORTCUTS                 ║
 ╠═══════════════════════════════════════════════╣
-║  ⌘⌥`         Toggle window (show/hide)      ║
+║  ⌘⇧`         Toggle window (show/hide)      ║
 ║  ⌘Q          Hide window                    ║
 ║  ⌘K          Clear terminal                 ║
 ║  ⌘I          Show status                    ║
@@ -64,7 +64,7 @@ Can use: ⌘⌥`, Menu bar icon
 ```
 Working in Safari
     ↓
-Press ⌘⌥`
+Press ⌘⇧`
     ↓
 Determinal appears
 Dock icon appears
@@ -73,7 +73,7 @@ Type: run "what is quantum entanglement?"
     ↓
 Read response
     ↓
-Press ⌘Q or ⌘⌥`
+Press ⌘Q or ⌘⇧`
     ↓
 Window hides
 Dock icon disappears
@@ -83,7 +83,7 @@ Back to Safari with clean Dock
 
 ### Example 2: Using Dock Icon
 ```
-Press ⌘⌥` to show window
+Press ⌘⇧` to show window
     ↓
 Dock icon appears: [Determinal]
     ↓
@@ -121,7 +121,7 @@ Select to switch to it
          │ Menu: ✓ Present │
          └────────┬────────┘
                   │
-       ⌘Q or ⌘⌥` │
+       ⌘Q or ⌘⇧` │
                   ↓
          ┌─────────────────┐
          │ WINDOW HIDDEN   │
@@ -129,7 +129,7 @@ Select to switch to it
          │ Menu: ✓ Present │
          └────────┬────────┘
                   │
-            ⌘⌥`  │
+            ⌘⇧`  │
                   ↓
          (Back to Visible)
 ```
@@ -138,14 +138,14 @@ Select to switch to it
 
 ### Tip 1: Three Ways to Show Window
 ```
-1. Press ⌘⌥` from anywhere
+1. Press ⌘⇧` from anywhere
 2. Click menu bar icon
 3. Right-click menu bar → Show Terminal
 ```
 
 ### Tip 2: Four Ways to Hide Window
 ```
-1. Press ⌘⌥` (toggle)
+1. Press ⌘⇧` (toggle)
 2. Press ⌘Q
 3. Click window close button (⭕️)
 4. Right-click menu bar → Hide Terminal
@@ -167,7 +167,7 @@ When window is visible:
 
 When window is hidden:
 - ⌘+Tab skips Determinal
-- Use ⌘⌥` or menu bar instead
+- Use ⌘⇧` or menu bar instead
 ```
 
 ### Tip 5: Menu Bar Always There
@@ -187,9 +187,9 @@ Dock:     Never visible
 Access:   Menu bar only
 ```
 
-### After (CMD+ALT+`)
+### After (CMD+SHIFT+`)
 ```
-Shortcut: ⌘⌥`
+Shortcut: ⌘⇧`
 Dock:     Visible when window is active
 Access:   Menu bar + Dock (when active)
 ```
@@ -198,7 +198,7 @@ Access:   Menu bar + Dock (when active)
 
 ```
 ┌────────────────────────────────────────┐
-│  ⌘⌥` = Toggle Window                  │
+│  ⌘⇧` = Toggle Window                  │
 │  ⌘Q  = Hide Window                    │
 │  [▣]  = Menu Bar (always available)   │
 │  Dock = Smart (appears when active)   │
@@ -209,14 +209,14 @@ Access:   Menu bar + Dock (when active)
 
 ## 🆘 Troubleshooting
 
-**Q: Why isn't ⌘⌥` working?**
-- Make sure you're pressing all three keys: Command, Option, and Backtick
-- Try pressing ⌘ and ⌥ first, then `
+**Q: Why isn't ⌘⇧` working?**
+- Make sure you're pressing all three keys: Command, Shift, and Backtick
+- Try pressing ⌘ and ⇧ first, then `
 - Check if another app is using the same shortcut
 
 **Q: Where did the Dock icon go?**
 - It's hidden! This is normal when window is hidden
-- Press ⌘⌥` to show window (and Dock icon)
+- Press ⌘⇧` to show window (and Dock icon)
 - Menu bar icon is always available
 
 **Q: How do I quit the app?**
@@ -233,8 +233,8 @@ Access:   Menu bar + Dock (when active)
 ## 📝 Quick Start Checklist
 
 - [ ] Launch Determinal (appears in Dock with window)
-- [ ] Press ⌘⌥` to hide (Dock icon disappears)
-- [ ] Press ⌘⌥` to show (Dock icon reappears)
+- [ ] Press ⌘⇧` to hide (Dock icon disappears)
+- [ ] Press ⌘⇧` to show (Dock icon reappears)
 - [ ] Try clicking Dock icon when visible
 - [ ] Try CMD+TAB when window is visible
 - [ ] Hide window with ⌘Q (Dock icon disappears)

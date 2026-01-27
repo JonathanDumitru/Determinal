@@ -1,5 +1,8 @@
 # Changes Summary - Simplified Menu Bar Experience
 
+**Note:** This is a historical change log and may not reflect current behavior.  
+For up-to-date shortcuts and menu bar behavior, see `Determinal/COMMANDS.md`.
+
 ## ✅ Changes Implemented
 
 ### 1. Simplified Toggle Shortcut
